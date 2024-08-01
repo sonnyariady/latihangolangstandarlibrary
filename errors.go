@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"reflect"
 )
 
 var (
@@ -27,7 +28,7 @@ func GetById(id string) error {
 }
 
 func main() {
-	err := GetById("sonny")
+	err := GetById("budi")
 	if err != nil {
 		if errors.Is(err, ValidationErrors) {
 			fmt.Println("Error validasi")
@@ -38,6 +39,7 @@ func main() {
 		} else {
 			fmt.Println("Error tak diketahui")
 		}
+		fmt.Println("Tipe err: ", reflect.TypeOf(err))
 	} else {
 		fmt.Println("Sukses bro")
 	}
